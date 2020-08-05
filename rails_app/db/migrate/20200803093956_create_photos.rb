@@ -1,6 +1,7 @@
 class CreatePhotos < ActiveRecord::Migration[6.0]
   def change
     create_table :photos do |t|
+      t.belongs_to :user 
       t.string :title
       t.string :description
       t.string :source
