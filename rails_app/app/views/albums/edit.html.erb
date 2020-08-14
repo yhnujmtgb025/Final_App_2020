@@ -1,0 +1,16 @@
+
+<%= form_for  @upalbum, html: {id: "helo"}, validate: true do  |album|%>
+
+    <%if @upalbum.errors.any? %>
+        <%= @upalbum.errors.full_messages%>
+        <%end%>
+    <p>
+    <%=album.label :title %>
+    <%=album.text_field :title %><br/>
+    </p>
+     <p>
+    <%=album.submit "Edit"%>
+    </p>
+<% end %>
+js
+<%= javascript_pack_tag 'js' %>

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_041059) do
+ActiveRecord::Schema.define(version: 2020_08_07_063153) do
+
+  create_table "ais", force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "photo_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_ais_on_album_id"
+    t.index ["photo_id"], name: "index_ais_on_photo_id"
+  end
 
   create_table "albums", force: :cascade do |t|
     t.integer "user_id"
@@ -24,10 +33,10 @@ ActiveRecord::Schema.define(version: 2020_08_04_041059) do
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer "follower_user_id"
+    t.integer "follower_id"
+    t.integer "followed_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "followed_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -41,6 +50,13 @@ ActiveRecord::Schema.define(version: 2020_08_04_041059) do
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
+  create_table "reacts", force: :cascade do |t|
+    t.bigint "reaction_id"
+    t.string "reaction_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
@@ -48,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_041059) do
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "confirpassword"
   end
 
 end

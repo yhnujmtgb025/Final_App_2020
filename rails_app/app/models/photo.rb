@@ -1,11 +1,6 @@
 class Photo < ApplicationRecord
     belongs_to :user 
-    has_and_belongs_to_many :album
+    has_many :albums, through: :ais
+    has_many :ais
+    has_many :reacts, as: :reaction, dependent: :destroy
 end
-
-
-
-
-
-
-
