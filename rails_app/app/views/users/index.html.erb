@@ -1,26 +1,50 @@
-
-<table class="table">
-  
-  <thead>
-    <tr>
-      <th scope="col">Stt</th>
-      <th scope="col">Firstname</th>
-      <th scope="col">Lastname</th>
-      <th scope="col">Email</th>
-      <th scope="col">Password</th>
-      <th scope="col">Confirpassword</th>
-    </tr>
-  </thead>
-  <%@users.each do |u|%>
-  <tbody>
-    <tr>
-      <th scope="row"><%= u.id%></th>
-      <td><%= u.firstname%></td>
-      <td><%= u.lastname%></td>
-      <td><%= u.email%></td>
-      <td><%= u.password%></td>
-      <td><%= u.confirpassword%></td>
-    </tr>
-  </tbody>
-  <%end%>
-</table>
+ <div class="container-fluid-sm">
+      <nav class="navbar navbar-expand-sm ">
+        <a href="#" class="navbar-brand" ><strong>Footbook</strong></a>
+        <!-- <input class="form-control form-control-sm" class="navbar-expand-lg" type="text" placeholder="Search Photo / Album"> -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon ">
+              <i class="fas fa-bars fa-2x"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarMenu">
+          <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a href="#" class="nav-link ">Login</a>
+                </li>
+            </ul>
+        </div>  
+      </nav>
+</div>
+   
+     <div class="container">
+      <h2 >Fotobook Signup</h2>
+     
+       <div class="row justify-content-center index-page">
+          <div class="card" id="card-logo">
+            <div class="card-body">
+              <img src="/Img/Google.png">
+              <img src="/Img/FB.jpg">
+              <img src="/Img/Twitter.png">
+            </div>
+          </div>
+       </div>  
+   
+          <div class="row justify-content-center index-page">
+                <div class="card" id="card-login">
+                  <div class="card-body">
+                 
+          <section class="content" style="min-height: auto;">
+                <% flash.each do |key, value| %>
+                <div class="row">
+                <div class="alert alert-<%= key %>">
+                    <%= value %>
+                </div>
+                </div>
+                <% end %>
+          </section>
+                </div>
+          </div>
+     </div>
+     <%= yield %>

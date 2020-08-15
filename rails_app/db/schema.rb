@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_063153) do
+ActiveRecord::Schema.define(version: 2020_08_15_044350) do
 
   create_table "ais", force: :cascade do |t|
     t.integer "album_id"
@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 2020_08_07_063153) do
     t.string "firstname"
     t.string "lastname"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "confirpassword"
+    t.string "password_confirmation"
+    t.string "password"
   end
 
 end

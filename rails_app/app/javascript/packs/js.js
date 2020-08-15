@@ -21,10 +21,10 @@ require("jquery-validation")
         "album[title]":{
           required:true
         }
-      },
+      },  
       messages:{
         "album[title]":{
-          required: "can't be trong"
+          required: "can't be blank"
         } 
       }
     });

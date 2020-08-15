@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
+  get 'photos/index'
+  get 'photo/index'
   get 'albums/:id/edit', to: 'albums#edit'
-  get 'albums/update', to:'album#update'
-  get '/photos', to: 'photos#index', as: :photo
+  get 'photos/', to: 'photos#index'
+  get 'photos/album', to: 'photos#new'
 
-  resources :news
-  resources :albums
+  resources :albums, :news, :photos, :users
 
-  
-  get 'users', to: 'users#index', as: :users
-  get 'users/:id', to: 'users#show', as: :user
-  root 'users#index'
+  root 'users#new'
+  get 'users/new', to: 'users#new'
+  get 'users/:id', to: 'users#show'
+ 
   get '/newest/',to: 'albums#index'
 
 
