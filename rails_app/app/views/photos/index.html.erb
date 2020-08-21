@@ -1,4 +1,4 @@
-   <div class="container-fluid-sm ">
+   <div class="container-fluid-sm sticky-top">
       <nav class="navbar navbar-expand-sm">
         <a href="#" class="navbar-brand" ><strong>Fotobook</strong></a>
         <!-- <input class="form-control form-control-sm" class="navbar-expand-lg" type="text" placeholder="Search Photo / Album"> -->
@@ -11,13 +11,18 @@
           <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a href="#" class="nav-link"><i class="fas fa-user circle-user"></i>&nbspMinh Thanh</a>
+                    <a href="#" class="nav-link"><i class="fas fa-user circle-user"></i>&nbsp;<%=current_user.firstname%></a>
                 </li>
             </ul>
             <ul class="navbar-nav">
+               <% if user_signed_in? %>
+            <ul class="navbar-nav">
               <li class="nav-item ">
-                  <a href="#" class="nav-link ">Login</a>
+              <%= link_to "Log out", destroy_user_session_path, :method=>'delete', class: 'nav-link'%>
               </li>
+              <% else %>
+              <%= link_to "Log in", new_user_session_path, class: 'nav-link' %>
+               <% end %>
           </ul>
         </div>  
       </nav>
@@ -27,41 +32,76 @@
       <a href="#" id="about">&nbspFeeds</a>
       <a href="#" id="blog">&nbspDiscover</a>
     </div>
+  
     <div class="container content-block-photo" >
       <div class="row justify-content-center">
- 
         <div class="btn-group btn-total" role="group" aria-label="Basic example">
          <a href="#"> <button type="button btn-lg" class="btn btn-left"> PHOTO</button></a>
-        <button type="button btn-lg" id="btn-album" class="btn btn-right">ALBUM</button>
+         <a href="#"><button type="button btn-lg" id="btn-album" class="btn btn-right">ALBUM</button></a>
         </div>
       </div>
-      <div class="row">
-        <% @images.each do |i|%>
-        <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="row ">
+      <% @images.each do |i|%>
+        <div class="col-sm-6 col-md-6 col-lg-6 hello">
           <div class="card mb-3" style="min-width:10 px;">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <%# <img src="./Img/girl.jpg" class="card-img" alt="Photo"> %>
-                <img src=<%=i.source%> class="card-img">
+              <img src=<%=i.source%> class="card-img" data-toggle="modal" data-target="#modalPhoto">
               </div>
-              <div class="col-md-8">
-                <div class="card-body body-photo">
-                  <h5 class="card-title"><%= i.title%></h5>
-                  <p class="card-text"><%= i.description%></p>
+              <div class="col-md-8 parent-text">
+                  <div class="card-body body-photo">
+                    <div class="btn-follow">
+                      <!-- <button type="button" class="btn btn-danger follow"></button> -->
+                      <button type="button" class="btn btn-outline-success follow"><p class="leave">Follow</p> </button>
+                    </div>
+                    <a href="#"><i class="fas fa-user circle-userr"></i>&nbsp;<%=current_user.firstname%></a>
+                  <h5 class="card-title tit" ><%= i.title%></h5>
+                  <p class="card-text des"><%= i.description%></p>
                   <div class="float-content">
                     <i class="card-text fas fa-heart fa-1x float-left-photo">&nbsp 123</i>
                     <p class="card-text float-right-photo"><small class="text-muted"><%=i.created_at%></small></p>
                   </div> 
                 </div>
-              </div>
             </div>
           </div>
         </div>
-        <%end%>
-      
-        
-        
-        
-      </div>
      
+      </div>
+        
+      <%end%>
+     <div class="container pagination justify-content-center">
+             <%= paginate @images, theme: 'twitter-bootstrap-4' %>
+        </div>
+      </div>
     </div>
+  
+    <div class="modal fade" id="modalPhoto" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modalTittle"></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner modal-photo">
+            <div class="carousel-item active">
+                <img src="" class="d-block " id="imgModal" alt="caption ">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" >
+        <p class=" mr-auto" id="modalDescription"></p>
+      </div>
+      </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+  
+ 
+
+
+
+           

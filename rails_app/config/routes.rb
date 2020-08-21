@@ -1,20 +1,35 @@
 Rails.application.routes.draw do
-  get 'photos/index'
-  get 'photo/index'
-  get 'albums/:id/edit', to: 'albums#edit'
-  get 'photos/', to: 'photos#index'
-  get 'photos/album', to: 'photos#new'
+  devise_for :users
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
-  resources :albums, :news, :photos, :users
 
-  root 'users#new'
+  root 'photos#index'
+  resources :albums, :photos, :users
+  # photo
+  get '/Feed/photo/new',to: 'photos#new'
+  get '/Feed/photo/show',to: 'photos#index'
+
+  #album 
+  get '/Feed/album/new',to: 'albums#new'
+  get '/Feed/album/show',to: 'albums#index'
+
+  #user 
+
+  
   get 'users/new', to: 'users#new'
   get 'users/:id', to: 'users#show'
- 
   get '/newest/',to: 'albums#index'
 
 
 
   
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # For details on tusershe DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
+
+
+
+
+

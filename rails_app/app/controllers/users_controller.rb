@@ -15,12 +15,14 @@ class UsersController < ApplicationController
     def create
       @user = User.new(user_params)
       if @user.save
-          UserMailer.signup_confirmation(@user).deliver_later
+          # UserMailer.signup_confirmation(@user).deliver_now
           flash[:notice] = "Signed up Successfully"
+          # SendEmailJob.set(wait: 1.seconds).perform_later @user
           redirect_to users_path
       else
         render "new"
       end
+    
     end
  
  

@@ -1,0 +1,68 @@
+
+   <div class="container-fluid-sm jol">
+      <nav class="navbar navbar-expand-sm ">
+        <a href="#" class="navbar-brand" ><strong>Footbook</strong></a>
+        <!-- <input class="form-control form-control-sm" class="navbar-expand-lg" type="text" placeholder="Search Photo / Album"> -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon ">
+              <i class="fas fa-bars fa-2x"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarMenu">
+          <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                <%= link_to "Log in", new_user_session_path, class: 'nav-link' %>
+                    <%# <a href="#" class="nav-link ">Login</a> %>
+                </li>
+            </ul>
+        </div>  
+      </nav>
+    </div>
+   
+     
+     <div class="container sign" style="background-color:white">
+      <h2 >Change Password</h2>
+      <div class="row justify-content-center index-page">
+         <div class="card" id="card-logo">
+           <div class="card-body" class="logo-global">
+             <img   src="/Img/Google.png">
+             <img   src="/Img/FB.jpg">
+             <img   src="/Img/Twitter.png">
+           </div>
+         </div>
+      </div>  
+        <div class="row justify-content-center index-page">
+          <div class="form-log">
+              <div class="account-wall ">
+                  <img class="profile-img" src="/Img/person.png"
+                      alt="">
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name),html: { method: :put,class: 'form-signin' }) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                    <%= f.hidden_field :reset_password_token %>  
+                      <%= f.password_field :password, autofocus: true, autocomplete: "new-password",placeholder: 'New Password',class: 'form-control',id: 'new-pass' %> 
+                       <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: 'Confirm Password',class:'form-control' %>
+                    <%# <input type="text" class="form-control" placeholder="Email" required autofocus>
+                    <input type="password" class="form-control" placeholder="Password" required> %>
+                     <%= f.submit "Change", class: 'btn login'%>
+                    <%# <button class="btn login" type="submit">Login</button> %>
+                    <div class="link-forget">
+                     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                       <%= link_to "Forgot password?", new_password_path(resource_name),:class => 'need-help' %><br />
+                    <% end %>
+                    </div>
+                  <div class="text-center left">
+                     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                    <%= link_to "Create account", new_registration_path(resource_name),:class => 'new-account',:id => 'edit-pass' %><br />
+                  <% end %>
+              </div>
+              </div>
+              
+            </div>
+            <%end%>
+        </div>
+      </div>
+
+
+
+<%# <%= render "devise/shared/links" %> 

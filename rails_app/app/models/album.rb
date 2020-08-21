@@ -1,14 +1,20 @@
 class Album < ApplicationRecord
     belongs_to :user
-    has_many :photos, through: :ais,dependent: :destroy
-    has_many :ais
+    has_and_belongs_to_many :photos
     has_many :reacts, as: :reaction
 
 
+    accepts_nested_attributes_for :photos
+    mount_uploader :source, PictureUploader
+
+   
+
+   
+
     # Validate
-    validates :title, presence: { message: "can't be blank" },   length: { in: 4..140,message: "minimum four characters" }
-    validates :description, presence: true,  length: { maximum: 300 } 
-    validates :source, presence: true
+    validates :title, length: { in: 20..140,message: "minimum four characters" }
+    validates :description, presence: true,  length: { in: 20..255 }
     validates :status, presence: true   
   
 end
+

@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
     has_many :albums, dependent: :destroy
     has_many :photos, dependent: :destroy
 
@@ -14,11 +19,11 @@ class User < ApplicationRecord
         has_many :followings, through: :given_follows, source: :followed_user
 
 
-    validates :firstname, presence: true,  length: { maximum: 25 } 
-    validates :lastname, presence: true,  length: { maximum: 25 } 
-    validates :email, presence: true, uniqueness: true,  length: { maximum: 255 } 
-    validates :password,confirmation: true,  length: { maximum: 255 }
-    validates :password_confirmation,presence: true
+    # validates :firstname, presence: true,  length: { maximum: 25 } 
+    # validates :lastname, presence: true,  length: { maximum: 25 } 
+    # validates :email, presence: true, uniqueness: true,  length: { maximum: 255 } 
+    # validates :password,confirmation: true,  length: { maximum: 64 }
+    # validates :password_confirmation,presence: true
     # def check_confirpassword_and_password
     #     errors.add(:confirpassword, "password inconrrect") if confirpassword != password
     # end

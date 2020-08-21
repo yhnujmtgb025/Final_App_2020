@@ -1,8 +1,14 @@
 
+
+
+  
+  .body-photo-dis a{
+    text-decoration: none;
+  }
   body{
     background-color:#F8F8F8;
   }
- .fa-bars{
+ .fa-bars{  
     color:white;
   }
   .fa-bars.content-left{
@@ -15,15 +21,25 @@
     padding: 0.5em 0.6em;
     background-color: white;
   } 
-  .circle-user{
+  .card-title a{
+    text-decoration: none;
+  }
+  .nav-link .circle-user{
     color:#3C5A9A;
+  }
+
+  .card-body .card-text{
+    display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden
   }
 
 
   .content-block-photo{
     width: 950px;
     background-color:#FFFFFF;
-    margin: 35px 0px 100px 150px;
+    margin: 35px 0px 100px 150px ;
   } 
   .content-block-album{
     width: 950px;
@@ -32,11 +48,11 @@
   } 
    .card-img{
     width: 200px;
-    height: 220px;
+    height: 230px;
   }
 
   .card-body.body-photo{
-    margin-top:5px;
+    margin-top:-7px;
     margin-left: 50px;
   }
   .card-body.body-album{
@@ -52,14 +68,15 @@
     }
   .float-left-photo{
     position: absolute;
-    left: 1px;
-    bottom:-15px;
+    left: -10px;
+    bottom:-30px;
     color: #36599C;
+ 
   }
   .float-right-photo{
     position: absolute;
     right: -10px;
-    bottom:-20px;
+    bottom:-35px;
   }
   .float-left-album{
     position: absolute;
@@ -79,6 +96,59 @@
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
     border: none;
   }
+
+  .btn-follow{
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+  .btn-follow .follow{
+    position: absolute;
+    top:5px;
+    right: -15px;
+    width: 80px;
+    height: 25px;
+    font-size: 12px;
+    border: 2px solid #ffb900;
+    border-radius: 20px 20px 20px 20px;
+    /* background-image: linear-gradient(to right,#ffb900,#ff7730),url(../Img/involve1.jpg); */
+  }
+  .btn-follow .follow:hover{
+    background-image: linear-gradient(to right,#ffb900,#ff7730),url(../Img/involve1.jpg);
+    border-color:#ffb900 ;
+  }
+  .follow .leave:hover{
+    color: white;
+  }
+  .follow .leave{
+    position: absolute;
+    top:-1px;
+    right: 10px;
+    font-size: 16px;
+    font-weight:950px;
+    letter-spacing: 2px;
+    color: red;
+  }
+
+  .body-album .circle-userr{
+    background-color:#3C5A9A;
+  }
+  .body-album .circle-userr{
+    color:white;
+  }
+  .body-album a{
+    color:#3C5A9A;
+  }
+  .body-photo .circle-userr{
+    background-color:#3C5A9A;
+  }
+  .body-photo .circle-userr{
+    color:white;
+  }
+  .body-photo a{
+    color:#3C5A9A;
+  }
+
   .btn-left{
     background-color:#3C5A9A;
     color: white;
@@ -156,7 +226,7 @@
 /* Album */
 .cover-img .card-img{
   width: 200px;
-  height: 190px;
+  height: 200px;
 }
 
 .cover-img{
@@ -224,11 +294,23 @@ a .btn-album:active{
     margin-top: 50px;
     line-height:1.5 ;
   }
+  .card-body .card-text{
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden
+  }
   .float-left-photo{
-    margin-bottom:55px;
+    left: 1px;
+    bottom:-12px !important;
+  }
+  .float-right-photo{
+    position: absolute;
+    right: -10px;
+    bottom:-12px !important;
   }
   .float-content .float-right-photo{
-    margin-bottom: 55px;
+    margin-bottom: 1px;
     margin-right: 10px;
   }
   .float-content .float-right-photo .text-muted{
@@ -263,6 +345,25 @@ a .btn-album:active{
   width: 500px;
   margin-left: 20px !important;
 } 
+.btn-follow .follow{
+  top:7px;
+  right: -15px;
+  width: 80px !important;
+  height: 25px !important;
+}
+.follow .leave{
+  top:-1px !important;
+  left: -1px !important;
+  font-size: 16px !important;
+}  
+
+.img-tab img{
+  width: 350px !important;
+  height: 350px !important;
+}
+.img-tab p{
+  font-size: 30px;
+}
 }
 @media(max-width:375px){
   .second-content ul{
@@ -270,7 +371,10 @@ a .btn-album:active{
     line-height:1.5 ;
   }
   .float-left-photo{
-    margin-bottom:55px;
+    margin-bottom:-1px;
+  }
+  .float-right-photo{
+    margin-bottom:-5px !important;
   }
   .float-content .float-right-photo{
     margin-bottom: 55px;
@@ -279,7 +383,24 @@ a .btn-album:active{
   .card.mb-3{
     width: 100px;
    }
- 
+   .btn-follow .follow{
+    top:10px;
+    right: -15px;
+    width: 60px !important;
+    height: 35px;
+    font-size: 10px;
+  }
+  .follow .leave{
+    top:-1px;
+    right: 15px !important;
+    font-weight: 450px;
+  }
+  .card-body .card-text{
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden
+  }
 }
 @media(max-width:380px){
   .second-content ul{
@@ -318,7 +439,39 @@ margin-right: 50px;
   width: 500px;
   margin-left: 20px !important;
 } 
-
+.img-tab img{
+  width: 350px !important;
+  height: 350px !important;
+}
+.img-tab p{
+  font-size: 30px;
+}
+.btn-follow .follow{
+  top:7px;
+  right: -15px;
+  width: 80px !important;
+  height: 25px !important;
+}
+.follow .leave{
+  top:-1px !important;
+  left: -1px !important;
+  font-size: 16px !important;
+}   
+.float-left-photo{
+  left: 1px;
+  bottom:-12px !important;
+}
+.float-right-photo{
+  position: absolute;
+  right: -10px;
+  bottom:-12px !important;
+}
+.card-body .card-text{
+  display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden
+}
 }
 
   @media (max-width:1200px){
@@ -351,13 +504,60 @@ margin-right: 50px;
     .float-left-photo{
       position: absolute;
       left: 1px;
-      bottom:-45px;
+      bottom:-72px;
       color: #36599C;
     }
     .float-right-photo{
       position: absolute;
       right: -10px;
-      bottom:-50px;
+      bottom:-75px;
+    }
+    .btn-follow .follow{
+      top:7px;
+      right:  -15px;
+      width: 50px ;
+      height: 20px;
+      font-size: 10px;
+    }
+    .follow .leave{
+      top:1px;
+      right: -2px !important;
+      font-size: 11px;
+    }   
+    
+    .body-album .btn-follow .follow{
+      top:7px;
+      right: -15px;
+      width: 80px ;
+      height: 20px;
+    }
+    .body-album .follow .leave{
+      top:-1px;
+      right: 8px !important;
+      font-size: 15px;
+    }   
+
+    .cover-img .card-img{
+      width: 200px;
+      height: 200px;
+    }
+    .cover-img .photo1{
+      z-index: 10;
+      left: 0;
+      top:10px;
+      margin-left: 15px;
+    }
+    .cover-img .photo2{
+      left:0;
+      top:10px;
+      transform: rotate(3deg);
+      margin-left: 15px;
+    }
+    .cover-img .photo3{
+      left: 0;
+      top:10px;
+      margin-left: 15px;
+      transform: rotate(6deg);
     }
   }
 
@@ -371,45 +571,66 @@ margin-right: 50px;
     }
     .card-img{
       width: 190px;
-      height: 290px;
+      height: 250px;
     }
   }
   @media (max-width:768px) {
+    .card-img{
+      width: 190px;
+      height: 270px;
+    }
+   
     .float-left-photo{
       position: absolute;
       left: -10px;
-      bottom:-65px;
+      bottom:-70px;
     }
     .float-right-photo{
       position: absolute;
       right: -20px;
-      bottom:-65px;
+      bottom:-70px;
     }
     .float-right-photo .text-muted{
       font-size: 7px;
       font-weight: 300;
   }
-  .card-img.photo1{
-    width: 155px;
-    height: 170px;
-  }
-  .card-img.photo2{
-    width: 155px;
-    height: 170px;
-  }
-  .card-img.photo3{
-    width: 155px;
-    height: 170px;
+  .cover-img .card-img{
+    width: 150px;
+    height: 180px;
   }
   .card-body.body-album{
-    margin-right: -10px;
+    margin-right: 2px;
   }
   .card-body.body-album .card-text{
-    font-size: 11px;
+    font-size: 9px;
   }
   .navbar-nav .nav-item .nav-link{
     margin-right: -30px !important;
   }
+  .btn-follow .follow{
+    top:7px;
+    right:  -15px;
+    width: 45px ;
+    height: 10px;
+  }
+  .follow .leave{
+    top:1px;
+    right: 1px !important;
+    font-size: 8px;
+  }  
+
+  .body-album .btn-follow .follow{
+    top:7px;
+    right:  -15px;
+    width: 45px ;
+    height: 10px;
+  }
+  .body-album .follow .leave{
+    top:1px;
+    right: 1px !important;
+    font-size: 8px;
+  } 
+  
   }
   @media (min-width:768px)and(max-width:770px) {
     .card-body{
@@ -422,6 +643,7 @@ margin-right: 50px;
       width: 235px;
       height: 239px;
     }
+
  
   }
   @media (max-width:577px){

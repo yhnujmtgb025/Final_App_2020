@@ -9,8 +9,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require ("turbolinks").start()
 require("channels")
-require ("packs/posts.js")
-require ("packs/custom")
+// require ("packs/posts.js")
+// require ("packs/custom")
 require("packs/js.js")
 
 

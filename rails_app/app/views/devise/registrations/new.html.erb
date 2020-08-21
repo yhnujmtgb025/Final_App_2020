@@ -1,0 +1,80 @@
+ <div class="container-fluid-sm">
+      <nav class="navbar navbar-expand-sm ">
+        <a href="#" class="navbar-brand" ><strong>Footbook</strong></a>
+        <!-- <input class="form-control form-control-sm" class="navbar-expand-lg" type="text" placeholder="Search Photo / Album"> -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon ">
+              <i class="fas fa-bars fa-2x"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarMenu">
+          <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                     <%= link_to "Log in", new_user_session_path, class: 'nav-link' %>
+                </li>
+            </ul>
+        </div>  
+      </nav>
+    </div>
+   
+     <div class="container sign">
+      <h2 >Fotobook Signup</h2>
+       <div class="row justify-content-center index-page">
+          <div class="card" id="card-logo">
+            <div class="card-body">
+              <img src="../Img/Google.png">
+              <img src="../Img/FB.jpg">
+              <img src="../Img/Twitter.png">
+            </div>
+          </div>
+       </div>  
+          <div class="row justify-content-center index-page" >
+                <div class="card" id="card-login">
+                  <div class="card-body">
+                     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <div class="form-group">
+                       <%= f.label :firstname,"Firstname" %><br />
+                       <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname",class: 'form-control' %>
+                      <%# <label for="exampleFirstName"><strong>First Name</strong></label>
+                      <input type="email" class="form-control" id="exampleFirstName" aria-describedby="emailHelp" placeholder="First name"> %>
+                    </div>
+                    <div class="form-group">
+                    <%= f.label :lastname,"Lastname" %><br />
+                    <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname",class: 'form-control' %>
+                      <%# <label for="exampleLastName"><strong>Last Name</strong></label>
+                      <input type="password" class="form-control" id="exampleLastName" placeholder="Password"> %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :email,"Email" %>
+                       <%= f.email_field :email, autocomplete: "email",class: 'form-control' %>
+                      <%# <label for="exampleNewPassword"><strong>New Password</strong></label>
+                      <input type="password" class="form-control" id="exampleNewPassword" placeholder="New Password"> %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :password,"New Password" %>
+                       <%= f.password_field :password, autocomplete: "new-password",class: 'form-control' %>
+                      <%# <label for="exampleNewPassword"><strong>New Password</strong></label>
+                      <input type="password" class="form-control" id="exampleNewPassword" placeholder="New Password"> %>
+                    </div>
+                    <div class="form-group">
+                    <%= f.label :password_confirmation,"Password Confirmation" %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: 'form-control' %>
+                      <%# <label for="Password Confirmation"><strong>Password Confirmation</strong></label>
+                      <input type="password" class="form-control" id="Password Confirmation" placeholder="Password Confirmation"> %>
+                    </div>
+                    <div class="text-center">
+                     <%= f.submit "Sign up",class: 'btn sign-up' %>
+                      <%# <button type="submit" class="btn sign-up">Sign Up</button> %>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+          </div>
+     </div>
+
+
+
+
+<%= render "devise/shared/links" %>
