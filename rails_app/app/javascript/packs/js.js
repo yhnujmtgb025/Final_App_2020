@@ -12,9 +12,12 @@ $(document).ready(function(){
        $('#modalDescription').text(description);
   });
 });
-  
 
-  
+$(".fa-heart").click(function() {
+  $(this).toggleClass("heart");
+});
+
+
 
 
 

@@ -1,3 +1,4 @@
+
    <div class="container-fluid-sm sticky-top">
       <nav class="navbar navbar-expand-sm">
         <a href="#" class="navbar-brand" ><strong>Fotobook</strong></a>
@@ -11,7 +12,12 @@
           <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a href="#" class="nav-link"><i class="fas fa-user circle-user"></i>&nbsp;<%=current_user.firstname%></a>
+                <% if user_signed_in? %>
+                    <a href="<%= photo_path(current_user) %>" class="nav-link van"><p class="inside-a"><%=current_user.firstname.slice(0)%>&nbsp;<%=current_user.lastname.slice(0)%></p></a>
+                </li>
+                  <li class="nav-item ">
+                    <a href="<%= photo_path(current_user) %>" class="nav-link"><%=current_user.firstname%></a>
+                  <%end%>
                 </li>
             </ul>
             <ul class="navbar-nav">
@@ -36,8 +42,8 @@
     <div class="container content-block-photo" >
       <div class="row justify-content-center">
         <div class="btn-group btn-total" role="group" aria-label="Basic example">
-         <a href="#"> <button type="button btn-lg" class="btn btn-left"> PHOTO</button></a>
-         <a href="#"><button type="button btn-lg" id="btn-album" class="btn btn-right">ALBUM</button></a>
+         <a href="#" class="link-to"> <button type="button btn-lg" class="btn btn-left">PHOTO</button></a>
+       <button type="button btn-lg" id="btn-album" class="btn btn-right"><%= link_to "ALBUM",new_photo_path,class: "add-pho" %></button>
         </div>
       </div>
       <div class="row ">
@@ -54,24 +60,28 @@
                       <!-- <button type="button" class="btn btn-danger follow"></button> -->
                       <button type="button" class="btn btn-outline-success follow"><p class="leave">Follow</p> </button>
                     </div>
-                    <a href="#"><i class="fas fa-user circle-userr"></i>&nbsp;<%=current_user.firstname%></a>
+                    <% if user_signed_in?%>
+                    <a href="#"><i class="fas fa-user circle-userr"></i>&nbsp;<%= i.user.firstname%></a>
+                    <%else%>
+                    <a href="#"><i class="fas fa-user circle-userr"></i>&nbsp;  </a>
+                    <%end%>
                   <h5 class="card-title tit" ><%= i.title%></h5>
                   <p class="card-text des"><%= i.description%></p>
                   <div class="float-content">
-                    <i class="card-text fas fa-heart fa-1x float-left-photo">&nbsp 123</i>
-                    <p class="card-text float-right-photo"><small class="text-muted"><%=i.created_at%></small></p>
+                    <i class="heart card-text fas fa-heart fa-1x float-left-photo" >&nbsp;123</i>
+                    <p class="card-text float-right-photo"><small class="text-muted"><%= i.created_at %></small></p>
                   </div> 
                 </div>
             </div>
           </div>
         </div>
-     
+
       </div>
         
       <%end%>
      <div class="container pagination justify-content-center">
-             <%= paginate @images, theme: 'twitter-bootstrap-4' %>
-        </div>
+             <%= paginate @images, theme: 'twitter-bootstrap-4',previous_label:"Previous",next_label: "Next " %>
+      </div>
       </div>
     </div>
   

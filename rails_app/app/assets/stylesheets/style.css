@@ -1,11 +1,8 @@
-
-body .login-wall{
-  background-color: white;
-}
 .navbar{
   background-color: #3C5A9A;
+  position: sticky;
+  z-index: 1;
 }
-
 .fa-bars{
   color:white;
 }
@@ -15,6 +12,7 @@ body .login-wall{
 }
 .navbar-nav {
     margin-right: 100px;
+   
 }
 .navbar-brand {
   margin-left: 80px;
@@ -65,17 +63,6 @@ h2{
   color:#3C5A9A ;
 }
 /* Form login */
-#edit-pass{
-  margin-left: 1rem;
-}
-.form-signin #new-pass
-{
-    margin-bottom: -2px;  
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
 .form-signin
 {
     max-width: 330px;
@@ -92,8 +79,8 @@ h2{
 .form-signin input[type="password"]
 {
     margin-bottom: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 .account-wall
 {
@@ -261,9 +248,6 @@ h2{
    width: 190px;
    margin:0px 20px 10px 20px;
  }
- .container.sign{
-  margin-left: 6rem !important;
-}
 
 .text-center .sign-up{
   width: 100px;
@@ -313,15 +297,8 @@ h2{
 {
     margin-left:-20px;
 }
-.container.sign{
-  margin-left: 7rem;
-}
  }
-@media (max-width:415px){
-  .container.sign{
-    margin-left: 5rem;
-  }
-}
+
 @media (max-width: 578px){
   .account-wall
   {

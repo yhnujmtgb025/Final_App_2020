@@ -1,9 +1,11 @@
 class AlbumsController < ApplicationController
   before_action :authenticate_user!
   def index
-    # @albums=Album.order(:created_at => 'desc').limit(15).page(params[:page])
-    @albums = Album.where(status: '1')
-    @albums = Album.order(:created_at => 'desc').page(params[:page]).per(8)
+    @albums = Album.where(status: '1').order(:created_at => 'desc').page(params[:page]).per(4)
+  end
+
+  def show 
+    
   end
 
   def edit
@@ -14,13 +16,15 @@ class AlbumsController < ApplicationController
     @albums = Album.new 
   end
 
+
   def create 
-    @images = current_user.albums.new(album_params)
-    if @images.save
-        redirect_to photos_path
-    else
-      render 'new'
-    end
+    # @albums = current_user.albums.create(album_params)
+    # @photos = @albums.photos
+    # if @photos.save
+    #     redirect_to albums_path
+    # else
+    #   render 'index'
+    # end
   end
 
   def update

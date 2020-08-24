@@ -1,5 +1,10 @@
 
 
+
+/* add image css */
+
+/* add image css */
+
 .fa-bars{
   color:white !important;
 }
@@ -115,11 +120,12 @@
   position: relative;
   top: 0;
   left: 0;
+  right: 0;
 }
 .lock-photo .loc{
   position: absolute;
   top: 3px;
-  left: 10rem;
+  left: 9.75rem;
   font-size: 12px;
 }
 .lock-photo i {
@@ -127,6 +133,14 @@
   border-radius: 50%;
   border: 1x solid grey;
   padding: 4px;
+
+}
+
+.lock-photo .locked{
+  position: absolute;
+  top: 3px;
+  left: 9.75rem;
+  font-size: 12px;
 }
 
 /* icon-lock album */
@@ -148,6 +162,50 @@
   border-radius: 50%;
   border: 1x solid grey;
   padding: 4px;
+}
+/* but-edit */
+.but-edit {
+position: relative;
+top: 0;
+left: 0;
+}
+.but-edit .edit-child:hover{
+  cursor: pointer;
+}
+
+.but-edit .edit-child{
+  position: absolute;
+  top: -4.3rem;
+  right: 2.5rem;
+  z-index: 10;
+  color: white;
+  font-size: 16px;
+  font-weight: 500px;
+  opacity: .9;
+}
+ .in-but{
+  position: absolute;
+  right:1.90rem ;
+  top: -4.4rem;
+  border-radius: 60px;
+  width: 60px;
+  height: 28px;
+  opacity: .3;
+}
+/* edit-child-album */
+.about-photo .but-edit .edit-child{
+  top: 8.2rem ;
+  right: 33.6rem ;
+  font-size: 21px;
+  color: white;
+}
+
+.about-photo .in-but{
+  right:33rem  ;
+  top: 8.2rem ;
+  width: 70px;
+  height: 30px;
+  opacity: .4;
 }
 
 
@@ -424,18 +482,10 @@
 }
 
 /* lock-photo */
-
 .lock-photo .loc{
-  position: absolute;
-  top:17px;
-  left: 22rem;
-  font-size: 25px;
-}
-.lock-photo i {
-  background-color: white;
-  border-radius: 50%;
-  border: 1x solid grey;
-  padding: 10px;
+  top:1.2rem !important;
+  left:22rem !important;
+  font-size: 20px !important;
 }
 /* button-add-photo */
 .add-photo .add-file{
@@ -456,6 +506,20 @@
   position: absolute;
   right: 10px;
   top:2px;  
+}
+/* edit-child */
+.but-edit .edit-child{
+  top: -6.5rem !important;
+  right: 4.8rem !important;
+  font-size: 30px;
+}
+
+ .in-but{
+  right:4rem !important ;
+  top: -6.5rem !important;
+  width: 100px;
+  height: 40px;
+  opacity: .4;
 }
 }
 @media(max-width:415px){
@@ -519,10 +583,9 @@
 /* lock-photo */
 
 .lock-photo .loc{
-  position: absolute;
-  top:17px;
-  left: 22rem;
-  font-size: 25px;
+  top:1.2rem !important;
+  left:22rem !important;
+  font-size: 20px !important;
 }
 .lock-photo i {
   padding: 10px;
@@ -530,8 +593,8 @@
 /* lock-photo  album*/
 
 .lock-photo.album .loc{
-  top:35px;
-  left: 17rem ; 
+  top:2.2rem !important;
+  left: 18rem !important ; 
   font-size: 25px;
 }
 .lock-photo.album i {
@@ -546,6 +609,30 @@
   position: absolute;
   right: 10px;
   top:2px;  
+}
+/* edit-child-photo */
+.but-edit .edit-child{
+  top: -6.5rem !important;
+  right: 4.8rem !important;
+  font-size: 30px;
+}
+
+ .in-but{
+  right:4rem !important ;
+  top: -6.5rem !important;
+  width: 100px;
+  height: 40px;
+  opacity: .4;
+}
+/* edit-child-album */
+.about-photo .but-edit .edit-child{
+  top: -5.5rem !important;
+  right: 7.8rem !important;
+}
+
+.about-photo .in-but{
+  right:7rem !important ;
+  top: -5.5rem !important;
 }
 }
 @media (max-width:768px) {
@@ -566,6 +653,35 @@
   right: 10px;
   top:-2rem;
 }
+
+.lock-photo .loc{
+  top: 3px;
+  left: 7.75rem;
+  font-size: 12px;
+}
+.but-edit .edit-child{
+  top: -4.1rem;
+  right: 0.8rem; 
+}
+ .in-but{
+  right:0.1rem ;
+  top: -4.4rem;
+}
+/* edit-child-album */
+.about-photo .but-edit .edit-child{
+  top: 8.2rem ;
+  right: 22.5rem ;
+  font-size: 21px;
+
+}
+
+.about-photo .in-but{
+  right:22rem  ;
+  top: 8.2rem ;
+  width: 70px;
+  height: 30px;
+  opacity: 1;
+}
 }
 @media (max-width:1200){
   .account-wall.fow
@@ -573,4 +689,5 @@
     width: 20px !important;
     height: 325px;
 }
+
 }

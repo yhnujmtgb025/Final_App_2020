@@ -30,4 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  will_paginate:
+    previous_label: <span class="my-older-post"><img src="/images/my-older-post.png" /></span>
+    next_label: <span class="my-newer-post"><img src="/images/my-newer-post.png" /></span>

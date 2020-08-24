@@ -12,7 +12,14 @@
           <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a href="#" class="nav-link"><i class="fas fa-user circle-user"></i>&nbsp<%=current_user.firstname%></a>
+                     <% if user_signed_in? %>
+                    <a href="#" class="nav-link van"><p class="inside-a"><%=current_user.firstname.slice(0)%>&nbsp;<%=current_user.lastname.slice(0)%></p></a>
+                   <% end %>
+                </li>
+                  <li class="nav-item ">
+                  <% if user_signed_in? %>
+                    <a href="#" class="nav-link"><%=current_user.firstname%></a>
+                    <%end%>
                 </li>
             </ul>
             <% if user_signed_in? %>

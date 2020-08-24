@@ -1,6 +1,35 @@
-
-
-
+  .action .add-pho{
+    text-decoration: none;
+    color: white;
+  }
+  /* icon user */
+  .van{
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    font-size: 21px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .van .inside-a{
+    position: absolute;
+    top: 4px;
+    left: 2.5px;
+    color:#3C5A9A ;
+  }
+  /* icon heart */
+  .heart {
+    color: grey;
+    opacity: .3; 
+  }
+  
+  .fa-heart {
+   
+    color:#3C5A9A ; 
+  }
+  
   
   .body-photo-dis a{
     text-decoration: none;
@@ -39,7 +68,7 @@
   .content-block-photo{
     width: 950px;
     background-color:#FFFFFF;
-    margin: 35px 0px 100px 150px ;
+    margin: 35px 0px 100px 250px ;
   } 
   .content-block-album{
     width: 950px;
@@ -71,7 +100,6 @@
     left: -10px;
     bottom:-30px;
     color: #36599C;
- 
   }
   .float-right-photo{
     position: absolute;

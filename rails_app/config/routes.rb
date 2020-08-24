@@ -7,17 +7,13 @@ Rails.application.routes.draw do
   root 'photos#index'
   resources :albums, :photos, :users
   # photo
-  get '/Feed/photo/new',to: 'photos#new'
-  get '/Feed/photo/show',to: 'photos#index'
-
+  get 'photos/new',to: 'photos#new'
+  get '/photos/:id', to: 'photos#show' 
   #album 
-  get '/Feed/album/new',to: 'albums#new'
-  get '/Feed/album/show',to: 'albums#index'
+   get 'albums/new',to: 'albums#new'
+  get 'albums/show',to: 'albums#index'
 
   #user 
-
-  
-  get 'users/new', to: 'users#new'
   get 'users/:id', to: 'users#show'
   get '/newest/',to: 'albums#index'
 
