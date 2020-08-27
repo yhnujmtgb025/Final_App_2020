@@ -1,0 +1,120 @@
+
+<div class="container-fluid-sm ">
+     <nav class="navbar navbar-expand-sm">
+       <a href="<%= photos_path %>" class="navbar-brand" ><strong>Fotobook</strong></a>
+        <!-- <input class="form-control form-control-sm" class="navbar-expand-lg" type="text" placeholder="Search Photo / Album"> -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon ">
+              <i class="fas fa-bars fa-2x"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarMenu">
+          <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                <% if user_signed_in? %>
+                    <a href="<%= photos_path(current_user) %>" class="nav-link van"><p class="inside-a"><%=current_user.firstname.slice(0)%>&nbsp;<%=current_user.lastname.slice(0)%></p></a>
+                </li>
+                  <li class="nav-item ">
+                    <a href="<%= photos_path(current_user) %>" class="nav-link"><%=current_user.firstname%></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+               
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+              <%= link_to "Log out", destroy_user_session_path, :method=>'delete', class: 'nav-link'%>
+              </li>
+              <%else%>
+              <%= link_to "Log in", new_user_session_path, class: 'nav-link' %>
+               <% end %>
+          </ul>
+        </div>  
+      </nav>
+    </div>
+    </div>
+    
+    <div id="mySidenav" class="sidenav">
+      <a href="#" id="about">&nbspFeeds</a>
+      <a href="#" id="blog">&nbspDiscover</a>
+    </div>
+    <div class="container content-block-photo edit">
+        <div class="row">
+          <div class="front-user">
+            <div class=" infor-image" >
+              <img src="/Img/person.png"  alt="">
+          </div>
+          <div class="infor-user">
+               <div class="btn-edit-tab btn-follow-tab">
+               <%if user_signed_in?%>
+              <% if current_user.id != @user.id%>
+                  <%if current_user.followings.include?@user%>
+                      <button type="button" class="btn  follow-dis-tab unfollow"><p class="leave">Unfollow</p></button> 
+                  <%else%>
+                    
+                      <button type="button" class="btn  follow-dis-tab"><p class="leave">Follow</p></button>
+                  <%end%>    
+              <%else%>
+                 <button type="button" class="btn btn-outline-primary edit-tab"><p class="leave">Edit Profile</p></button>
+              <%end%>
+            <%else%>
+                <button type="button" class="btn  follow-dis-tab"> <%= link_to "Follow", new_user_session_path, class: 'leave' %></button>    
+            <%end%>
+              </div> 
+              <div class="infor-follow">
+                <h3 class="face-user"><%=@user.firstname%></h3> 
+                <div class="register">
+                  <ul id="infor-ul">
+                    <li><%= @user.count_photos %> <a href="<%= profile_photo_path(@user)%>" class="uppercase"> PHOTOS &verbar;</a></li>
+                    <li><%= @user.count_albums%> <a href="<%= profile_album_path(@user) %>" class="uppercase">ALBUMS &verbar;</a></li>
+                    <li><%= @user.followings.count%>  <a href="<%=profile_following_path(@user) %>" class="uppercase">FOLLOWING &verbar;</a></li>
+                    <li><%= @user.followers.count%><a href="#" class="uppercase" > FOLLOWER </a></li>
+                  </ul>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+        <div class="row" id="hello">
+  
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3  img-tab">
+          <% @follower_user.each do |f|%>
+              <div class="form-log">
+              <div class="account-wall text-center fow">
+                  <img class="profile-img" src="/Img/girl1.jpg" alt="">
+                  <h3><%= f.firstname %></h3>
+                    <div class="row justify-content-center infor-form">
+                        <ul class="infor-ull">
+                            <li><%=f.count_photos%>&nbsp; <a href="" class="uppercase"><br>PHOTOS &nbsp;&nbsp; </a></li>
+                            <li><%= f.count_albums%><a href="" class="uppercase"><br>&nbsp;ALBUMS </a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-follow-tab mt-4" style="margin-right: 95px;">
+                       <%if user_signed_in?%>
+                          <% if current_user.id != @user.id%>
+                              <%if current_user.followings.include?@user%>
+                                  <button type="button" class="btn  follow-dis-tab unfollow"><p class="leave">Unfollow</p></button> 
+                              <%else%>
+                                  <button type="button" class="btn  follow-dis-tab"><p class="leave">Follow</p></button>
+                              <%end%>    
+                          <%else%>
+                              <%if current_user.followings.include?@user%>
+                                  <button type="button" class="btn  follow-dis-tab unfollow"><p class="leave">Unfollow</p></button> 
+                              <%else%>
+                                  <button type="button" class="btn  follow-dis-tab"><p class="leave">Follow</p></button>
+                              <%end%>  
+                          <%end%>
+                        <%else%>
+                            <button type="button" class="btn  follow-dis-tab"> <%= link_to "Follow", new_user_session_path, class: 'leave' %></button>    
+                      <%end%>
+                    </div>
+                   
+                      <!-- <button class="btn login" style="margin-left: 80px;" type="submit">Login</button> -->
+              </div>
+              </div>
+              <%end%>
+          </div>
+
+      
+     </div>

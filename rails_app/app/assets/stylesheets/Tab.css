@@ -52,6 +52,9 @@
   top:2px;  
 }
 /* button  follow*/
+.btn-danger{
+  background-color: none !important;
+}
 .btn-outline-success {
   color: #ffb900;
   border-color: #ffb900;
@@ -73,20 +76,44 @@
     border-radius: 20px 20px 20px 20px;
   }
   .follow-dis-tab .leave{
+    text-decoration: none;
     position: absolute;
     top:-1px;
     right: 16px;
     font-size: 16px;
     font-weight:950px;
     letter-spacing: 2px;
-    color: red;
+    color:#ff7730 ;
+   
   }
-  .btn-follow-tab .follow-dis-tab:hover{
+   .btn-follow-tab .follow-dis-tab:active{
     background-image: linear-gradient(to right,#ffb900,#ff7730),url(../Img/involve1.jpg);
     border-color:#ffb900 !important;
+  } 
+  .btn-follow-tab .follow-dis-tab.unfollow{
+    background-image: linear-gradient(to right,#ffb900,#ff7730),url(../Img/involve1.jpg);
+    border-color:#ffb900 !important;
+
   }
-  .follow-dis-tab .leave:hover{
+  .follow-dis-tab .leave{
+    color: #ff7730;
+  }
+  .follow-dis-tab .leave:active{
     color: white;
+  }
+  .follow-dis-tab.unfollow .leave{
+    text-decoration: none;
+    position: absolute;
+    top:-1px;
+    right: 10px;
+    font-size: 16px;
+    font-weight:950px;
+    letter-spacing: 2px;
+    color: white;
+   
+  }
+  .follow-dis-tab.unfollow{
+    background-color: none;
   }
 
 /* button edit */
@@ -133,14 +160,6 @@
   border-radius: 50%;
   border: 1x solid grey;
   padding: 4px;
-
-}
-
-.lock-photo .locked{
-  position: absolute;
-  top: 3px;
-  left: 9.75rem;
-  font-size: 12px;
 }
 
 /* icon-lock album */
@@ -150,6 +169,13 @@
   left: 0;
 }
 .img-tab-album .lock-photo .loc{
+  position: absolute;
+  top: 25px;
+  left: 9rem;
+  z-index: 10;
+  font-size: 12px;
+}
+.img-tab-album .lock-photo.album .locked{
   position: absolute;
   top: 25px;
   left: 9rem;
@@ -194,15 +220,15 @@ left: 0;
 }
 /* edit-child-album */
 .about-photo .but-edit .edit-child{
-  top: 8.2rem ;
-  right: 33.6rem ;
+  top: -4.25rem ;
+  right: 3.6rem ;
   font-size: 21px;
   color: white;
 }
 
 .about-photo .in-but{
-  right:33rem  ;
-  top: 8.2rem ;
+  right:3rem  ;
+  top: -4.25rem ;
   width: 70px;
   height: 30px;
   opacity: .4;

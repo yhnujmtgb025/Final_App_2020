@@ -1,16 +1,15 @@
 class PhotosController < ApplicationController
-  before_action :authenticate_user!
-  def index
-    @images = Photo.where(status: '1').order(:created_at => 'desc').page(params[:page]).per(2)
+  def index 
+    @images = Photo.where(status: '1').order(:created_at => 'desc').page(params[:page]).per(8)
+    @user = User.all
   end
 
 
-  def discover
-
+  def follower
+    
   end
 
-  def profile
-  end
+
 
   def show
     @user = User.find(params[:id])
@@ -23,8 +22,8 @@ class PhotosController < ApplicationController
 
   def create 
     @images = current_user.photos.new(photo_params)
-    if @images.save
-        redirect_to  photos_path
+    if @images.save!
+      redirect_to  photos_path
     else
       render 'new'
     end
@@ -32,6 +31,6 @@ class PhotosController < ApplicationController
 
   private
   def photo_params
-    params.require(:photo).permit(:title,:description,:source,:status,:count)
+    params.require(:photo).permit(:title,:description,:source,:status)
   end
 end

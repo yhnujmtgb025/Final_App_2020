@@ -1,7 +1,7 @@
 
    <div class="container-fluid-sm sticky-top">
       <nav class="navbar navbar-expand-sm">
-        <a href="#" class="navbar-brand" ><strong>Fotobook</strong></a>
+        <a href="<%= photos_path %>" class="navbar-brand" ><strong>Fotobook</strong></a>
         <!-- <input class="form-control form-control-sm" class="navbar-expand-lg" type="text" placeholder="Search Photo / Album"> -->
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon ">
@@ -9,27 +9,24 @@
             </span>
         </button>
         <div class="collapse navbar-collapse " id="navbarMenu">
-          <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
+        <input class="form-control form-search" type="text" placeholder="Search Photo / Album">
+        <%if user_signed_in? %>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                <% if user_signed_in? %>
-                    <a href="<%= photo_path(current_user) %>" class="nav-link van"><p class="inside-a"><%=current_user.firstname.slice(0)%>&nbsp;<%=current_user.lastname.slice(0)%></p></a>
+                    <a href="<%= profile_photo_path(current_user) %>" class="nav-link van"><p class="inside-a"><%=current_user.firstname.slice(0)%>&nbsp;<%=current_user.lastname.slice(0)%></p></a>
                 </li>
                   <li class="nav-item ">
-                    <a href="<%= photo_path(current_user) %>" class="nav-link"><%=current_user.firstname%></a>
-                  <%end%>
+                    <a href="<%=  profile_album_path(current_user) %>" class="nav-link"><%=current_user.firstname%></a>
                 </li>
             </ul>
-            <ul class="navbar-nav">
-               <% if user_signed_in? %>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav " style="display:inline-block">
               <li class="nav-item ">
               <%= link_to "Log out", destroy_user_session_path, :method=>'delete', class: 'nav-link'%>
               </li>
               <% else %>
               <%= link_to "Log in", new_user_session_path, class: 'nav-link' %>
                <% end %>
-          </ul>
+            </ul>
         </div>  
       </nav>
     </div>
@@ -42,8 +39,8 @@
     <div class="container content-block-photo" >
       <div class="row justify-content-center">
         <div class="btn-group btn-total" role="group" aria-label="Basic example">
-         <a href="#" class="link-to"> <button type="button btn-lg" class="btn btn-left">PHOTO</button></a>
-       <button type="button btn-lg" id="btn-album" class="btn btn-right"><%= link_to "ALBUM",new_photo_path,class: "add-pho" %></button>
+         <a href="#" class="link-to"> <button type="button btn-lg" class="btn btn-left po">PHOTO</button></a>
+         <a href="<% albums_path %>" class="link-to" style="text-decoration: none;">  <button type="button btn-lg" id="btn-album" class="btn btn-right"><%=link_to 'ALBUM',albums_path,:class => 'add-pho'%></button></a>
         </div>
       </div>
       <div class="row ">
@@ -58,18 +55,17 @@
                   <div class="card-body body-photo">
                     <div class="btn-follow">
                       <!-- <button type="button" class="btn btn-danger follow"></button> -->
-                      <button type="button" class="btn btn-outline-success follow"><p class="leave">Follow</p> </button>
+                      <%# <button type="button" class="btn btn-outline-success follow"><p class="leave">Follow</p> </button> %>
                     </div>
-                    <% if user_signed_in?%>
-                    <a href="#"><i class="fas fa-user circle-userr"></i>&nbsp;<%= i.user.firstname%></a>
-                    <%else%>
-                    <a href="#"><i class="fas fa-user circle-userr"></i>&nbsp;  </a>
-                    <%end%>
+                  
+                     <i class="fas fa-user circle-userr"></i>&nbsp;<%= link_to @user.where(id: i.user_id).take.firstname,profile_photo_url(i.user.id)%>
+                  
+                    
                   <h5 class="card-title tit" ><%= i.title%></h5>
                   <p class="card-text des"><%= i.description%></p>
                   <div class="float-content">
                     <i class="heart card-text fas fa-heart fa-1x float-left-photo" >&nbsp;123</i>
-                    <p class="card-text float-right-photo"><small class="text-muted"><%= i.created_at %></small></p>
+                    <p class="card-text float-right-photo"><small class="text-muted"><%= i.updated_at %></small></p>
                   </div> 
                 </div>
             </div>

@@ -1,12 +1,13 @@
 class Album < ApplicationRecord
-    has_many :ais
+    has_many :ais   
     has_many :photos, through: :ais
 
 
-    belongs_to :user
+    belongs_to :user, counter_cache: :count_albums
     has_many :reacts, as: :reaction
 
 
+    
     mount_uploader :source, PictureUploader
     default_scope -> { order(created_at: :desc) }
 

@@ -1,7 +1,4 @@
-  .action .add-pho{
-    text-decoration: none;
-    color: white;
-  }
+  
   /* icon user */
   .van{
     background-color: white;
@@ -68,7 +65,7 @@
   .content-block-photo{
     width: 950px;
     background-color:#FFFFFF;
-    margin: 35px 0px 100px 250px ;
+    margin: 35px 0px 100px 150px ;
   } 
   .content-block-album{
     width: 950px;
@@ -177,11 +174,31 @@
     color:#3C5A9A;
   }
 
-  .btn-left{
+  .btn-left.po{
     background-color:#3C5A9A;
     color: white;
     font-weight: 800;
     border-radius: 2px 0px 0px 2px;
+    border: 1px solid #3C5A9A;
+  }
+  .btn-left.po:hover{
+    color:none;
+  }
+  .btn-left.feed{
+    background-color:white;
+    color:#3C5A9A ;
+    font-weight: 800;
+    border-radius: 2px 0px 0px 2px;
+    border: 1px solid #3C5A9A;
+  }
+  .btn-left .add-album {
+    color: #3C5A9A;
+  }
+  .btn-right.feed{
+    background-color:#3C5A9A ;
+    color:white;
+    font-weight: 800;
+    border-radius: 0px 2px 2px 0px;
     border: 1px solid #3C5A9A;
   }
   .btn-right{
@@ -191,17 +208,27 @@
     border-radius: 0px 2px 2px 0px;
     border: 1px solid #3C5A9A;
   }
-  .btn-left:hover{
-    color:white;
+  .btn-right .add-pho{
+    color:#3C5A9A;
   }
-  .btn-right:hover{
-    color: #3C5A9A;
+  .add-album .add-pho{
+    color: white;
+    text-decoration: none;
   }
+  .add-photo .add-pho{
+    color: white;
+    text-decoration: none;
+  }
+ 
+
   .btn-total{
     margin-top:15px;
     margin-bottom: 15px;
   }
 
+  .btn-total a{
+    text-decoration: none !important;
+  }
  
 
 /* Second-content */

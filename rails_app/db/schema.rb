@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_064029) do
+ActiveRecord::Schema.define(version: 2020_08_25_092938) do
 
   create_table "ais", force: :cascade do |t|
     t.integer "album_id"
@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 2020_08_24_064029) do
   create_table "follows", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_user_id"
-    t.index "\"user_id\", \"created_at\"", name: "index_follows_on_user_id_and_created_at"
+    t.index ["followed_user_id"], name: "index_follows_on_followed_user_id"
+    t.index ["follower_id", "followed_user_id"], name: "index_follows_on_follower_id_and_followed_user_id", unique: true
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -65,7 +67,8 @@ ActiveRecord::Schema.define(version: 2020_08_24_064029) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "count", default: 0
+    t.integer "count_photos", default: 0
+    t.integer "count_albums", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

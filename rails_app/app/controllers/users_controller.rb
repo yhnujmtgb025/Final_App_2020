@@ -3,10 +3,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def index
-    @user = User.new
-    # render 'Feed'
+    @images = Photo.all
+    @user = User.all
   end
-
+  
   def new
     @user = User.new
   end
